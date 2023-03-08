@@ -2,12 +2,14 @@ import requests
 import json
 import random
 from PIL import Image
+import os
 
 def download_image_from_api(keyword):
     """Downloads a random image from the Unsplash API based on the given keyword."""
     
     # Enter your Unsplash API access key here
-    access_key = "jOcdgbjZX5ic3TbyQBHW4AcVqIsJFDUr1OYNynXnP_Q"
+    UNSPLASH_KEY = "jOcdgbjZX5ic3TbyQBHW4AcVqIsJFDUr1OYNynXnP_Q"
+    UNSPLASH_API_KEY = os.environ["UNSPLASH_API_KEY"]
 
     # Construct the API request URL with the given keyword
     api_url = f"https://api.unsplash.com/search/photos?query={keyword}&client_id={access_key}"

@@ -30,7 +30,7 @@ with open('Fact/Settings.json') as json_file:
     random_element = random.choice(array_data)
     print("video backround: " + random_element)
 
-openai.api_key = "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"
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 gptPrompt = '{\n"type":"Psychology Fact",\n"opening_text": "Did you know that according to psychology, people who talk to themselves...",\n"ending_text": "are more likely to have a high IQ. Talking to yourself makes your brain work more efficiently!"\n"type":"Sports fact",\n"opening_text": "Only one sport has been played on the moon...",\n"ending_text": "50 years ago, Alan Shepardan, an Apollo 14 astronaut, played golf on the moon!"\n"type":"Productivity Fact",\n"opening_text": "The most most productive day of the week is...",\n"ending_text": "Tuesday! After 40 hours of work per week, productivity decreases by 50%, and who really feels productive on Monday?"\n"type":"' + str(random_topic) + '",'
 
