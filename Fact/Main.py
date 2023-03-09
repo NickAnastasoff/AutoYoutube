@@ -26,7 +26,6 @@ clip.write_audiofile("Fact/random_clip.wav")
 
 with open('Fact/Settings.json') as json_file:
     data = json.load(json_file)
-   
     channel_topics = data['channel_topics'][0]
     random_topic = random.choice(list(channel_topics.keys()))
     array_data = channel_topics[random_topic]
