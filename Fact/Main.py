@@ -125,7 +125,7 @@ request_body = {
         'tags': []
     },
     'status': {
-        'privacyStatus': 'private',
+        'privacyStatus': 'public',
         'publishedAt': upload_time,
         'selfDeclaredMadeForKids': False
     },
@@ -146,7 +146,7 @@ response_video_upload = service.videos().insert(
 uploaded_video_id = response_video_upload.get('id')
 
 video_id = uploaded_video_id
-
+""" 
 counter = 0
 response_update_video = service.videos().list(id=video_id, part='status').execute()
 update_video_body = response_update_video['items'][0]
@@ -167,4 +167,4 @@ while 10 > counter:
     counter += 1
 
 os.remove("token files/token_youtube_v3.json")
-os.remove("Fact/__pycache__/google_apis.cpython-310.pyc")
+os.remove("Fact/__pycache__/google_apis.cpython-310.pyc") """
