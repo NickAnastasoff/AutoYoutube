@@ -11,26 +11,27 @@ import pandas as pd
 from google_apis import create_service
 
 pathToVideos = "/Users/nickanastasoff/Desktop/Coding/VideoFiles/"
+# make this the path to your folder of videos for backround ^
 client_file = '/Users/nickanastasoff/Desktop/Coding/VideoFiles/client_secret_339597661959-p1l8b2ulp1mf74aehv161105lc5sdm94.apps.googleusercontent.com.json'
-
-# Load the audio file
+# make this the path to the json file for your oath youtube key ^
 audio = mp.AudioFileClip(pathToVideos + "/breathing-again-full.wav")
+# make this the path to your backround music ^
+openai.api_key = os.environ["OPENAI_API_KEY"]
+# openAi key here ^
+
 duration = audio.duration
 start_time = random.uniform(0, duration - 6)
 clip = audio.subclip(start_time, start_time + 6)
 clip.write_audiofile("Fact/random_clip.wav")
-# Open the JSON file
 
 with open('Fact/Settings.json') as json_file:
     data = json.load(json_file)
-    channel_name = data["channel_name"]
+   
     channel_topics = data['channel_topics'][0]
     random_topic = random.choice(list(channel_topics.keys()))
     array_data = channel_topics[random_topic]
     random_element = random.choice(array_data)
     print("video backround: " + random_element)
-
-openai.api_key = os.environ["OPENAI_API_KEY"]
 
 gptPrompt = '{\n"type":"Psychology Fact",\n"opening_text": "Did you know that according to psychology, people who talk to themselves...",\n"ending_text": "are more likely to have a high IQ. Talking to yourself makes your brain work more efficiently!"\n"type":"Sports fact",\n"opening_text": "Only one sport has been played on the moon...",\n"ending_text": "50 years ago, Alan Shepardan, an Apollo 14 astronaut, played golf on the moon!"\n"type":"Productivity Fact",\n"opening_text": "The most most productive day of the week is...",\n"ending_text": "Tuesday! After 40 hours of work per week, productivity decreases by 50%, and who really feels productive on Monday?"\n"type":"' + str(random_topic) + '",'
 
