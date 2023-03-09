@@ -20,7 +20,7 @@ engine.setProperty('volume', 1)
 
 prompt = "write a short, 3 paragraph, horror story:"
 storyToJsonPrompt = 'Please provide a short story that you would like me to analyze. Once you\'ve provided the story, I will return five keywords from five key events in the story, these keywords will be as decriptive as possible, as in sprint instead of walk, in a JSON array.Story: Once upon a time, there was a young boy named Jack. One day, Jack climbed a giant beanstalk and discovered a castle in the clouds. In the castle, he found a golden harp, a goose that laid golden eggs, and a giant who was fast asleep. Jack stole the harp and the goose, but the giant woke up and chased him down the beanstalk. Jack chopped down the beanstalk, causing the giant to fall to his death.JSON output: \n{\n"prompts":["beanstalk", "harp", "theft", "chase", "destruction"]\n}\nStory:'
-openai.api_key = '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'
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # MAIN FUNCTIONS
 def findstory():
