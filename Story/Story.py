@@ -61,7 +61,7 @@ def render():
         image("scary " + keyword)
         image_path = f"unsplash{imageNum}.jpg"
         with Image.open(image_path) as im:
-            im.crop((50, 50))
+            im.crop((0, 0, 50, 50))
             im.save(image_path)
         image_clip = ImageClip(image_path).set_duration(audio_length/5)
         clips.append(image_clip)
